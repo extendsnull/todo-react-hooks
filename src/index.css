@@ -1,0 +1,31 @@
+body {
+  margin: 5px;
+  font-family: sans-serif;
+}
+
+button {
+  padding: 5px;
+  font: inherit;
+  border: 1px solid black;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: white;
+  background-color: lightgray;
+  border-color: lightgray;
+  cursor: not-allowed;
+}
+
+input {
+  padding: 5px;
+  font: inherit;
+  border: 1px solid black;
+  border-radius: 0;
+}
+
+input:focus,
+button:focus {
+  outline: 3px solid cadetblue;
+}
