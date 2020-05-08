@@ -1,2 +1,1 @@
-import Filter from './filter';
-export default Filter;
+export { default } from './filter';

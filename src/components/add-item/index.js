@@ -1,2 +1,1 @@
-import AddItem from './add-item';
-export default AddItem;
+export { default } from './add-item';
