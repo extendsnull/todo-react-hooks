@@ -1,22 +1,10 @@
 import React from 'react';
-import './list.css';
+import './list.scss';
 
 const List = props => {
   const { children, setDoneTodo, setImportantTodo, deleteTodo } = props;
 
   const createList = data => {
-    const handleItemClick = id => {
-      setImportantTodo(id);
-    };
-
-    const handleDoneButtonClick = id => {
-      setDoneTodo(id);
-    };
-
-    const handleDeleteButtonClick = id => {
-      deleteTodo(id);
-    };
-
     return data.map(({ label, id, done, important }) => {
       let labelClassName = '';
 
@@ -30,20 +18,20 @@ const List = props => {
 
       return (
         <li key={id}>
-          <span className={labelClassName} onClick={() => handleItemClick(id)}>
+          <span className={labelClassName} onClick={() => setImportantTodo(id)}>
             {label}
           </span>
           <button
             className="done"
             type="button"
-            onClick={() => handleDoneButtonClick(id)}
+            onClick={() => setDoneTodo(id)}
           >
             Done
           </button>
           <button
             className="delete"
             type="button"
-            onClick={() => handleDeleteButtonClick(id)}
+            onClick={() => deleteTodo(id)}
           >
             Delete
           </button>

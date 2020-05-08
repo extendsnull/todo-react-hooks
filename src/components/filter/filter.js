@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './filter.css';
+import './filter.scss';
 
 const Filter = props => {
   const { sortType, sortTodo, filterTodo } = props;

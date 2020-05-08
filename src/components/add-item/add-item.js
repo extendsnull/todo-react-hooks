@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './add-item.css';
+import './add-item.scss';
 
 const AddItem = ({ addTodo }) => {
   const [value, setValue] = useState('');
@@ -26,6 +26,6 @@ const AddItem = ({ addTodo }) => {
       <button disabled={!value}>Add todo</button>
     </form>
   );
-}
+};
 
 export default AddItem;

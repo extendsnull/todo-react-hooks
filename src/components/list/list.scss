@@ -1,0 +1,43 @@
+.list {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    cursor: pointer;
+  }
+
+  li + li {
+    margin-top: 10px;
+  }
+
+  button {
+    margin-left: 5px;
+  }
+
+  button.done {
+    font: inherit;
+    color: green;
+    border: 1px solid green;
+  }
+
+  button.delete {
+    font: inherit;
+    color: crimson;
+    border: 1px solid crimson;
+  }
+
+  span {
+    margin-right: auto;
+  }
+
+  span.done {
+    text-decoration: line-through;
+  }
+
+  span.important {
+    color: crimson;
+  }
+}
+

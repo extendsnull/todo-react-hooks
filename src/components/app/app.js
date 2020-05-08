@@ -8,7 +8,7 @@ import Header from '../header';
 import Filter from '../filter';
 import List from '../list';
 import AddItem from '../add-item';
-import './app.css';
+import './app.scss';
 
 const App = () => {
   const [data, setData] = useState(getFromLocalStorage());

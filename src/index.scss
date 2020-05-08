@@ -9,13 +9,13 @@ button {
   border: 1px solid black;
   border-radius: 0;
   cursor: pointer;
-}
 
-button:disabled {
-  color: white;
-  background-color: lightgray;
-  border-color: lightgray;
-  cursor: not-allowed;
+  :disabled {
+    color: white;
+    background-color: lightgray;
+    border-color: lightgray;
+    cursor: not-allowed;
+  }
 }
 
 input {
