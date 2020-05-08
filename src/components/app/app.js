@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { setToLocalStorage, getFromLocalStorage } from '../../utils/local-storage';
+import {
+  setToLocalStorage,
+  getFromLocalStorage,
+} from '../../utils/local-storage';
 import getId from '../../utils/get-id';
 import Header from '../header';
 import Filter from '../filter';
@@ -7,9 +10,9 @@ import List from '../list';
 import AddItem from '../add-item';
 import './app.css';
 
-export default function App() {
+const App = () => {
   const [data, setData] = useState(getFromLocalStorage());
-  const [sort, setSort] = useState('all');
+  const [sort, setSort] = useState('active');
   const [filter, setFilter] = useState('');
 
   const addTodo = label => {
@@ -84,9 +87,9 @@ export default function App() {
       default:
         return data;
       case 'active':
-        return data.filter(({ active }) => active);
+        return data.filter(({ done }) => !done);
       case 'done':
-        return data.filter(({ active }) => !active);
+        return data.filter(({ done }) => done);
     }
   };
 
@@ -117,4 +120,6 @@ export default function App() {
       <AddItem addTodo={addTodo} />
     </div>
   );
-}
+};
+
+export default App;

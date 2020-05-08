@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './filter.css';
 
-export default function Filter(props) {
+const Filter = props => {
   const { sortType, sortTodo, filterTodo } = props;
   const [value, setValue] = useState('');
   const buttons = [
@@ -55,4 +55,6 @@ export default function Filter(props) {
       </div>
     </nav>
   );
-}
+};
+
+export default Filter;

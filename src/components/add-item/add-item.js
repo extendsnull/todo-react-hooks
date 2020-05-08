@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './add-item.css';
 
-export default function AddItem(props) {
-  const { addTodo } = props;
+const AddItem = ({ addTodo }) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = evt => {
@@ -28,3 +27,5 @@ export default function AddItem(props) {
     </form>
   );
 }
+
+export default AddItem;
