@@ -1,48 +1,11 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { setToLocalStorage, getFromLocalStorage } from '../../utils/local-storage';
+import getId from '../../utils/get-id';
 import Header from '../header';
 import Filter from '../filter';
 import List from '../list';
 import AddItem from '../add-item';
 import './app.css';
-
-const getId = () => {
-  return uuidv4();
-};
-
-const setToLocalStorage = data => {
-  const stringified = JSON.stringify(data);
-  localStorage.setItem('todo-app-data', stringified);
-};
-
-const getFromLocalStorage = () => {
-  const data = localStorage.getItem('todo-app-data');
-
-  if (data) {
-    return JSON.parse(data);
-  }
-
-  return [
-    {
-      label: 'Learn React',
-      id: getId(),
-      done: false,
-      important: false,
-    },
-    {
-      label: 'Drink Coffee',
-      id: getId(),
-      done: true,
-      important: false,
-    },
-    {
-      label: 'Create Todo App',
-      id: getId(),
-      done: false,
-      important: false,
-    },
-  ];
-};
 
 export default function App() {
   const [data, setData] = useState(getFromLocalStorage());
