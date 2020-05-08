@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './add-item.scss';
 
-const AddItem = ({ addTodo }) => {
+const AddItem = ({ addTodo, resetTodo }) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = evt => {
@@ -11,7 +11,7 @@ const AddItem = ({ addTodo }) => {
   };
 
   const handleChange = ({ target }) => {
-    const value = target.value.trimStart();
+    const { value } = target;
     setValue(value);
   };
 
@@ -21,9 +21,13 @@ const AddItem = ({ addTodo }) => {
         type="text"
         placeholder="Type todo label"
         onChange={handleChange}
+        minLength="1"
         value={value}
       />
-      <button disabled={!value}>Add todo</button>
+      <button disabled={!value.trim().length}>Add todo</button>
+      <button type="button" onClick={resetTodo}>
+        Reset list
+      </button>
     </form>
   );
 };

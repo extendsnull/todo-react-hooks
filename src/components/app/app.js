@@ -10,9 +10,30 @@ import List from '../list';
 import AddItem from '../add-item';
 import './app.scss';
 
+const mockList = [
+  {
+    label: 'Learn React',
+    id: getId(),
+    done: false,
+    important: false,
+  },
+  {
+    label: 'Drink Coffee',
+    id: getId(),
+    done: true,
+    important: false,
+  },
+  {
+    label: 'Create Todo App',
+    id: getId(),
+    done: false,
+    important: false,
+  },
+];
+
 const App = () => {
-  const [data, setData] = useState(getFromLocalStorage());
-  const [sort, setSort] = useState('active');
+  const [data, setData] = useState(getFromLocalStorage() || mockList);
+  const [sort, setSort] = useState('all');
   const [filter, setFilter] = useState('');
 
   const addTodo = label => {
@@ -106,6 +127,11 @@ const App = () => {
     );
   };
 
+  const resetTodo = () => {
+    setData(mockList);
+    setToLocalStorage(mockList);
+  };
+
   return (
     <div className="app">
       <Header />
@@ -117,7 +143,7 @@ const App = () => {
       >
         {showTodo()}
       </List>
-      <AddItem addTodo={addTodo} />
+      <AddItem addTodo={addTodo} resetTodo={resetTodo} />
     </div>
   );
 };
